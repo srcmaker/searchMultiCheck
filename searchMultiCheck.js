@@ -1,17 +1,15 @@
 /**
- * jQuery-UI Autocomplete 를 활용한 검색박스
- * 검색을 하면 결과가 체크박스 선택을 할 수 있도록 나오며
- * 선택시 선택된  개체가 버튼으로 지정된 구역에 나타남.
- * 버튼 삭제시  선택된 것도 제거되며
- * 체크박스 언체크시  버튼 또한 제거된다.
  *
+ * multi-checkbox selector base on jQuery-UI Autocomplete
+ * when seleting an item, a button which has that item's properties appears
+ * on the specific location user designated.
  *
- * 사용법:
- *   new SearchMultiCheck(option)
+ * HOW TO USE:
+ *   new SearchMultiCheck(config)
  *
- *   @option - Object 유형이어야 함
+ *   @config - it's type of Object
  *
- * 사용예:
+ * EXAMPLE 1:
  *   new SearchMultiCheck({
  *       source: '/admin/tag/gettags/journalist',
  *       inputSelector:'#left-keyword',
@@ -26,22 +24,21 @@
  *       }
  *   });
  *
- *  // option 필수값
+ *  // config-properties required
  *
- *  @source -  검색 소스
- *  @inputSelector - 검색어 입력 필드의 CSS Selector
- *  @btnBoxSelector - 선택된 값에 해당하는 버튼이 나타나게 될 컨테이너의  CSS Selector
- *                    해당 컨테이너는 iniline-list css class 를 가진  ul 이어야 함.
- *  @cvkData: source로 부터 넘어온 데이터(ui.item)의 속성 중 체크박스의 속성으로 저장될 것들.
- *            이 체크박스의 속성값을 가지고 버튼을 만듦
- *  @uniqKey: source 로부터 넘어온 데이터(ui.item)의 속성중 다른 데이터 값과 비교했을 때 유니크한 값을 가지게 하는 속성
+ *  @source -  where you get the source
+ *  @inputSelector - CSS-Selector of the input you typewrite into
+ *  @btnBoxSelector - CSS-Selector of the container where buttons reside. it should be a UL dom.
+ *  @chkData: object that has ui.item.properties as keys and counterpart button properties' name as value.
+ *            this checkData is used for button. and you can make custom button using this properties.
+ *  @uniqKey: unique ui.item property that makes that ui.item unique
  *
- *  // option 선택값
+ *  // config-properties optional
  *
- *  @buttonMaker:  체크박스 선택시 이벤트 핸들러가 버튼을 만들기 위하여 사용하는 함수.
- *                 값이 주어지지 않았을 경우에는 SearchMultiCheck.makeOption.defaultButtonMaker 을 사용함.
- *  @eventHandlers: jQuery-Ui autocomplete 의 각 event 에 대한 handler 들.
- *                  'change','create','search','response' 만 허용됨.
+ *  @buttonMaker:  a callback function that event handler uses to make button when you select checkbox.
+ *                 if you omit  this, SearchMultiCheck.makeOption.defaultButtonMaker is used.
+ *  @eventHandlers:  event-handler for jQuery-Ui autocomplete event.
+ *                  only 'change','create','search' and 'response' events are allowed.
  *
  */
 class SearchMultiCheck {
