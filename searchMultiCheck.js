@@ -52,10 +52,9 @@ class SearchMultiCheck {
         const essentials = ['source', 'inputSelector', 'btnBoxSelector', 'chkData'];
         const eventNames = ['change','create','search','response'];
 
-        const defaultButtonMaker = function(uniqKey,checkBox){
+        const defaultButtonMaker = function(checkBox){
             const btnText = $(checkBox).closest('li').text().trim();
-            const uniqVal = $(checkBox).attr(uniqKey);
-            const btn = '<span class="label radius float" '+uniqKey+'="'+uniqVal+'">'+btnText+' &#x2717;</span>';
+            const btn = '<span class="label radius float">'+btnText+' &#x2717;</span>';
             return btn;
         };
 
