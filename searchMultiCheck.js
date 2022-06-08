@@ -29,15 +29,15 @@
  *  @source -  where you get the source
  *  @inputSelector - CSS-Selector of the input you typewrite into
  *  @btnBoxSelector - CSS-Selector of the container where buttons reside. it should be a UL dom.
- *  @chkData: object that has ui.item.properties as keys and counterpart button properties' name as value.
+ *  @chkData -  object that has ui.item.properties as keys and counterpart button properties' name as value.
  *            this checkData is used for button. and you can make custom button using this properties.
- *  @uniqKey: unique ui.item property that makes that ui.item unique
+ *  @uniqKey - unique ui.item property that makes that ui.item unique
  *
  *  // config-properties optional
  *
- *  @buttonMaker:  a callback function that event handler uses to make button when you select checkbox.
+ *  @buttonMaker - a callback function that event handler uses to make button when you select checkbox.
  *                 if you omit  this, SearchMultiCheck.makeOption.defaultButtonMaker is used.
- *  @eventHandlers:  event-handler for jQuery-Ui autocomplete event.
+ *  @eventHandlers - event-handler for jQuery-Ui autocomplete event.
  *                  only 'change','create','search' and 'response' events are allowed.
  *
  */
